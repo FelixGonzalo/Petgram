@@ -34,19 +34,31 @@ export const ListOfCategories = () => {
     [showFixed]
   )
 
-  const renderList = (fixed) => (
-    <List fixed={fixed}>
-      {
-      loading
-        ? <Item key='loading'><Category /></Item>
-        : categories.map((category) => (
-          <Item key={category.id}>
-            <Category {...category} />
-          </Item>
-        ))
-      }
-    </List>
-  )
+  const renderList = (fixed) => {
+    if (loading) {
+      return (
+        <List fixed={fixed}>
+          {[1, 2, 3, 4].map((id) => (
+            <Item key={`loader-${id}`}>
+              <Category loading />
+            </Item>
+          ))}
+        </List>
+      )
+    }
+
+    return (
+      <List fixed={fixed}>
+        {
+          categories.map((category) => (
+            <Item key={category.id}>
+              <Category {...category} />
+            </Item>
+          ))
+        }
+      </List>
+    )
+  }
 
   return (
     <>
