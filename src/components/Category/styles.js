@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { Link as LinkRouter } from 'react-router-dom'
 
-export const Anchor = styled.a`
+export const Link = styled(LinkRouter)`
   width: 75px;
   padding-bottom: 20px;
   display: flex;

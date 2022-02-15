@@ -1,26 +1,23 @@
 import React from 'react'
-import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyles } from './styles/GlobalStyles'
-import { ListOfPhotoCards } from './components/ListOfPhotoCards'
 import { Logo } from './components/Logo'
-import { PhotoCardWithQuery } from './container/PhotoCardWithQuery'
+import { Home } from './pages/Home'
+import { DetailPet } from './pages/DetailPet'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 export const App = () => {
-  const urlParams = new window.URLSearchParams(window.location.search)
-  const detailId = urlParams.get('detail')
-
   return (
     <>
       <GlobalStyles />
-      <Logo />
-      {
-        detailId
-          ? <PhotoCardWithQuery id={detailId} />
-          : <>
-            <ListOfCategories />
-            <ListOfPhotoCards categoryId={2} />
-          </>
-      }
+      <BrowserRouter>
+        <Logo />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/pet/:id' element={<Home />} />
+          <Route path='/detail/:id' element={<DetailPet />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
