@@ -21,7 +21,5 @@ export const Img = styled.img`
 `
 
 export const ContainerOptions = styled.div`
-  display: flex;
-  justify-content: left;
-  margin-top: -10px;
+  transform: translateY(-10px)
 `
