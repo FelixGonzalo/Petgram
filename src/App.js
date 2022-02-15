@@ -8,10 +8,7 @@ import { DetailPet } from './pages/DetailPet'
 import { Favs } from './pages/Favs'
 import { User } from './pages/User'
 import { NotRegisteredUser } from './pages/NotRegisteredUser'
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false })
-}
+import Context from './Context'
 
 export const App = () => {
   return (
@@ -24,20 +21,20 @@ export const App = () => {
           <Route path='/pet/:id' element={<Home />} />
           <Route path='/detail/:id' element={<DetailPet />} />
         </Routes>
-        <UserLogged>
+        <Context.Consumer>
           {
             ({ isAuth }) =>
               isAuth
                 ? <Routes>
                   <Route path='/favs' element={<Favs />} />
                   <Route path='/user' element={<User />} />
-                  </Routes>
+                </Routes>
                 : <Routes>
                   <Route path='/favs' element={<NotRegisteredUser />} />
                   <Route path='/user' element={<NotRegisteredUser />} />
-                  </Routes>
+                </Routes>
           }
-        </UserLogged>
+        </Context.Consumer>
         <Navbar />
       </BrowserRouter>
     </>
