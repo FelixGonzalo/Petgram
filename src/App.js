@@ -1,10 +1,10 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
+import { Navbar } from './components/Navbar'
 import { Home } from './pages/Home'
 import { DetailPet } from './pages/DetailPet'
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 export const App = () => {
   return (
@@ -17,6 +17,7 @@ export const App = () => {
           <Route path='/pet/:id' element={<Home />} />
           <Route path='/detail/:id' element={<DetailPet />} />
         </Routes>
+        <Navbar />
       </BrowserRouter>
     </>
   )
