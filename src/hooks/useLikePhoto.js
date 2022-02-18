@@ -10,8 +10,18 @@ const LIKE_ANONYMOUS_PHOTO = gql`
   }
 `
 
+const LIKE_PHOTO = gql`
+  mutation likePhoto($input: LikePhoto!) {
+    likePhoto(input: $input) {
+      id
+      liked
+      likes
+    }
+  }
+`
+
 export const useLikePhoto = ({ id }) => {
-  const [toggleLike] = useMutation(LIKE_ANONYMOUS_PHOTO)
+  const [toggleLike] = useMutation(LIKE_PHOTO)
 
   const likePhoto = () => {
     toggleLike({ variables: { input: { id: id } } })
