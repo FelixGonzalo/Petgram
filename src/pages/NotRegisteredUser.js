@@ -6,7 +6,7 @@ import { useLoginUser } from '../hooks/useLoginUser'
 import { LinkButton } from '../components/LinkButton'
 import { Helmet } from 'react-helmet'
 
-export const NotRegisteredUser = () => {
+export default () => {
   const { activateAuth } = useContext(Context)
 
   const { signupMutation, data: dataSignup, loading: loadingSignup, error: errorSignup } = useSignupUser()

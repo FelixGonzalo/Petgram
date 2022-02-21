@@ -4,7 +4,7 @@ import { ListOfCategories } from '../components/ListOfCategories'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
-export const Home = () => {
+export default () => {
   const { id } = useParams()
 
   return (
