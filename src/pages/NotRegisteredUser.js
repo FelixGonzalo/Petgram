@@ -4,6 +4,7 @@ import { UserForm } from '../components/UserForm'
 import { useSignupUser } from '../hooks/useSignupUser'
 import { useLoginUser } from '../hooks/useLoginUser'
 import { LinkButton } from '../components/LinkButton'
+import { Helmet } from 'react-helmet'
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Context)
@@ -39,6 +40,13 @@ export const NotRegisteredUser = () => {
   if (showSignup) {
     return (
       <>
+        <Helmet>
+          <title>Petgram - Iniciar sesión</title>
+          <meta
+            name='description'
+            content='Inicia sesión en Petgram, un app para ver fotos de mascotas'
+          />
+        </Helmet>
         <UserForm
           loading={loadingSignup}
           error={errorMsgSignup}
