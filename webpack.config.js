@@ -24,7 +24,7 @@ module.exports = {
       theme_color: '#8d00ff',
       icons: [
         {
-          src: path.resolve('src/assets/icon.png'),
+          src: path.resolve(__dirname, 'src/assets/icon.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           purpose: 'any maskable'
         }
